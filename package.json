@@ -1,0 +1,25 @@
+{
+  "name": "@mousepox/dungen",
+  "description": "Zelda-like dungeon blueprint generator",
+  "version": "0.1.0",
+  "author": "Geoff Blair <geoff@mousepox.io>",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "tslint -c tslint.json 'lib/**/*.ts'",
+    "prepublish": "yarn lint && yarn build",
+    "test": "node tests/index.js"
+  },
+  "dependencies": {
+    "@mousepox/math": "^1.1.0"
+  },
+  "devDependencies": {
+    "tslint": "^5.20.1",
+    "typescript": "^3.7.2"
+  }
+}
