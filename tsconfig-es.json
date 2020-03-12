@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "lib": ["es2018"],
+    "module": "es6",
+    "moduleResolution": "node",
+    "strict": true,
+    "removeComments": true,
+    "outDir": "dist-es"
+  },
+  "include": [
+    "lib/**/*.ts"
+  ],
+  "compileOnSave": true
+}

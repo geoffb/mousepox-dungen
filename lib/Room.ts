@@ -1,6 +1,8 @@
 import { Random } from "@mousepox/math";
 import { Direction, flipDirection } from "./core";
 
+export const RoomShapeSymbols = ["O", "U", "I", "L", "T", "X"];
+
 /** Room roles */
 export const enum RoomRole {
   Generic,
@@ -11,10 +13,10 @@ export const enum RoomRole {
 
 /** Room shapes */
 export const enum RoomShape {
-  /** Unknown room shape */
-  Unknown,
+  /** No exits */
+  O,
   /** 1 exit */
-  Q,
+  U,
   /** 2 exits, in an "I" shape (opposite each other) */
   I,
   /** 2 exits, in an "L" shape (cater-corner each other) */
@@ -39,9 +41,12 @@ export class Room {
 
   public rotation = 0;
 
-  public shape = RoomShape.Unknown;
+  public shape = RoomShape.O;
 
   public exits = 0;
+
+  /** Custom properties of this room */
+  private readonly properties: Map<string, any> = new Map();
 
   private exitMask = 0;
 
@@ -50,6 +55,14 @@ export class Room {
     this.x = x;
     this.y = y;
     this.parentId = parentId;
+  }
+
+  public getProperty<T>(name: string): T | undefined {
+    return this.properties.get(name) as T;
+  }
+
+  public setProperty<T>(name: string, value: T) {
+    this.properties.set(name, value);
   }
 
   public addExit(direction: Direction) {
@@ -130,8 +143,8 @@ export class Room {
         }
         break;
 
-      case 1: // Q
-        this.shape = RoomShape.Q;
+      case 1: // U
+        this.shape = RoomShape.U;
         if (this.hasExit(Direction.North)) {
           this.rotation = 0;
         } else if (this.hasExit(Direction.East)) {
@@ -144,7 +157,7 @@ export class Room {
         break;
 
       default: // No exits
-        this.shape = RoomShape.Unknown;
+        this.shape = RoomShape.O;
         this.rotation = 0;
         break;
     }

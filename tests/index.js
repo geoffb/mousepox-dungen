@@ -1,14 +1,20 @@
 const { Grid } = require("@mousepox/math");
 const { Generator } = require("../dist");
 
-const MapWidth = 5;
-const MapHeight = 5;
+const MapWidth = 4;
+const MapHeight = 4;
 
 const RoomWidth = 3;
 const RoomHeight = 3;
 
 const rooms = new Map([
-  [1, [ // Q
+  [0, [ // O
+    1, 1, 1,
+    1, 0, 1,
+    1, 1, 1,
+  ]],
+
+  [1, [ // U
     1, 0, 1,
     1, 0, 1,
     1, 1, 1,
@@ -39,6 +45,8 @@ const rooms = new Map([
   ]],
 ]);
 
+const Tiles = " #SE";
+
 const gen = new Generator({
   width: MapWidth,
   height: MapHeight,
@@ -60,9 +68,13 @@ const grid = new Grid(MapWidth * RoomWidth, MapHeight * RoomHeight);
 gen.grid.forEach((id, rx, ry) => {
   if (id === 0) { return; }
   const room = gen.rooms.get(id);
-  // console.log(room);
   const m = getRoomGrid(room.shape);
   m.rotate(room.rotation);
+  if (room.role === 1) {
+    m.set(1, 1, 2);
+  } else if (room.role === 3) {
+    m.set(1, 1, 3);
+  }
   grid.paste(m, rx * RoomWidth, ry * RoomHeight);
 });
 
@@ -72,7 +84,7 @@ gen.forEachRoom((room) => console.log(room));
 for (let y = 0; y < grid.height; ++y) {
   let row = "";
   for (let x = 0; x < grid.width; ++x) {
-    row += grid.get(x, y) === 1 ? "#" : " ";
+    row += Tiles[grid.get(x, y)];
   }
   console.log(row);
 }
