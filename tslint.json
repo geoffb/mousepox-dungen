@@ -2,7 +2,6 @@
   "extends": "tslint:recommended",
   "rules": {
     "no-bitwise": false,
-    "no-console": false,
     "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"]
   }
 }

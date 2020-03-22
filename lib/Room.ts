@@ -50,6 +50,10 @@ export class Room {
 
   private exitMask = 0;
 
+  public get shapeSymbol(): string {
+    return RoomShapeSymbols[this.shape];
+  }
+
   constructor(id: number, x: number, y: number, parentId = 0) {
     this.id = id;
     this.x = x;

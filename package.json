@@ -8,7 +8,8 @@
   "types": "dist/index.d.ts",
   "module": "dist-es/index.js",
   "files": [
-    "dist"
+    "dist",
+    "dist-es"
   ],
   "scripts": {
     "build": "tsc && tsc -p tsconfig-es.json",
