@@ -4,7 +4,7 @@ import { Direction, flipDirection } from "./core";
 export const RoomShapeSymbols = ["O", "U", "I", "L", "T", "X"];
 
 /** Room roles */
-export const enum RoomRole {
+export enum RoomRole {
   Generic,
   Start,
   Boss,
@@ -12,7 +12,7 @@ export const enum RoomRole {
 }
 
 /** Room shapes */
-export const enum RoomShape {
+export enum RoomShape {
   /** No exits */
   O,
   /** 1 exit */

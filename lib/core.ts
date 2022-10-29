@@ -1,5 +1,5 @@
 /** Cardinal directions */
-export const enum Direction {
+export enum Direction {
   North = 1,
   East = 2,
   South = 4,
