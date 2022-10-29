@@ -1,7 +1,7 @@
 {
   "name": "@mousepox/dungen",
   "description": "Zelda-like dungeon blueprint generator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Geoff Blair <geoff@mousepox.io>",
   "license": "ISC",
   "main": "dist/index.js",
