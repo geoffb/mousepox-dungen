@@ -2,7 +2,7 @@ import { Random } from "@mousepox/math";
 import { Direction, flipDirection } from "./core";
 
 /** Room roles */
-export const enum RoomRole {
+export enum RoomRole {
   Generic,
   Start,
   Boss,
@@ -10,7 +10,7 @@ export const enum RoomRole {
 }
 
 /** Room shapes */
-export const enum RoomShape {
+export enum RoomShape {
   /** Unknown room shape */
   Unknown,
   /** 1 exit */
