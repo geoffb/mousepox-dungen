@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+* Avoid `const enum`
+
 ## 0.2.0
 
 * :recycle: Separate generator logic from floor/room utility methods
