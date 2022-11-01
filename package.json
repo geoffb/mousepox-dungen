@@ -13,15 +13,13 @@
   ],
   "scripts": {
     "build": "tsc && tsc -p tsconfig-es.json",
-    "lint": "tslint -c tslint.json 'lib/**/*.ts'",
-    "prepublish": "yarn lint && yarn build",
+    "prepublish": "yarn build",
     "test": "node tests/index.js"
   },
   "dependencies": {
     "@mousepox/math": "^1.1.0"
   },
   "devDependencies": {
-    "tslint": "^5.20.1",
     "typescript": "^3.7.2"
   },
   "publishConfig": {
